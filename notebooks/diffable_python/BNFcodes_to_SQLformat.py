@@ -26,6 +26,9 @@ def SQLformatBNFcodes(bnfcodeslist):
 
     #Remove duplicate codes
     bnfcodeslist = list(set(bnfcodeslist))
+    
+    #Resort codes
+    bnfcodeslist.sort()
 
     #Convert to quoted, comma seperated list
     bnfcodesstring = ', '.join(f'"{code}"' for code in bnfcodeslist)
@@ -265,8 +268,8 @@ bnfcodes = '''
 0501130R0BDAAAD
 '''
 
-bnfcodes = SQLformatBNFcodes(bnfcodes)
-bnfcodes
+bnfcodesstring = SQLformatBNFcodes(bnfcodes)
+bnfcodesstring
 
 # -
 
