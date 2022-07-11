@@ -265,9 +265,5 @@ bnfcodes = '''
 0501130R0BDAAAD
 '''
 
-bnfcodes = SQLformatBNFcodes(bnfcodeslist)
+bnfcodes = SQLformatBNFcodes(bnfcodes)
 bnfcodes
-
-# +
-
-
