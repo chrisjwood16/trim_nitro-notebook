@@ -149,7 +149,9 @@ FINAL_DF
 # ### Chart comparison
 #
 # Generate charts from data in above cell for comparison
-# 1. OpenPrescribing % of trimethoprim of total of trimethoprim + nitrofurantion
+# 1. OpenPrescribing codelists % of trimethoprim of total of trimethoprim + nitrofurantion
+# 2. Study codelists % of trimethoprim of total of trimethoprim + nitrofurantion
+# 3. Study codelists % of trimethoprim + co-trimoxazole of total of trimethoprim + co-trimoxazole + nitrofurantion
 
 ax = FINAL_DF.groupby(["month"])['OPtrim_percent'].sum().plot(kind='line', title="OpenPrescribing % trimethoprim")
 plt.xticks(rotation=90);
