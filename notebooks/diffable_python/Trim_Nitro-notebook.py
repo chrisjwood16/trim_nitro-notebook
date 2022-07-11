@@ -74,7 +74,7 @@ OP_DF
 OP_DF['OPtrim+OPnitro'] = OP_DF['OPtrimethoprim'] + OP_DF['OPnitrofurantoin']
 
 #Create new column - Trimethoprim as a % of trimethoprim + nitrofurantoin
-OP_DF['OPtrim_percent'] = OP_DF['OPtrimethoprim'] / OP_DF['OPtrim+OPnitro']
+OP_DF['OPtrim_percent'] = OP_DF['OPtrimethoprim'] / OP_DF['OPtrim+OPnitro'] * 100
 
 OP_DF
 # -
@@ -123,10 +123,10 @@ STUDY_DF['StudyTrim+Nitro'] = STUDY_DF['Studytrimethoprim'] + STUDY_DF['Studynit
 STUDY_DF['StudyTrim+Cotrim+Nitro'] = STUDY_DF['Studytrimethoprim'] + STUDY_DF['Studycotrimoxazole'] + STUDY_DF['Studynitrofurantoin']
 
 #Create new column - Trimethoprim as a % of trimethoprim + nitrofurantoin
-STUDY_DF['Studytrim_percent'] = STUDY_DF['Studytrimethoprim'] / STUDY_DF['StudyTrim+Nitro']
+STUDY_DF['Studytrim_percent'] = STUDY_DF['Studytrimethoprim'] / STUDY_DF['StudyTrim+Nitro'] * 100
 
 #Create new column - Trimethoprim + co-trimoxazole as a % of trimethoprim + co-trimoxazole + nitrofurantoin
-STUDY_DF['Studytrim+cotrim_percent'] = STUDY_DF['StudyTrim+Cotrim'] / STUDY_DF['StudyTrim+Cotrim+Nitro']
+STUDY_DF['Studytrim+cotrim_percent'] = STUDY_DF['StudyTrim+Cotrim'] / STUDY_DF['StudyTrim+Cotrim+Nitro'] * 100
 
 STUDY_DF
 # -
@@ -147,6 +147,9 @@ FINAL_DF
 # -
 
 # ### Chart comparison
+#
+# Generate charts from data in above cell for comparison
+# 1. OpenPrescribing % of trimethoprim of total of trimethoprim + nitrofurantion
 
 ax = FINAL_DF.groupby(["month"])['OPtrim_percent'].sum().plot(kind='line', title="OpenPrescribing % trimethoprim")
 plt.xticks(rotation=90);
