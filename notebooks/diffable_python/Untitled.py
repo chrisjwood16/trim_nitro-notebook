@@ -15,10 +15,19 @@
 # ---
 
 import pandas as pd
+from ebmdatalab import bq
+import os
 
+vendors_path=os.path.join('..','data','vendors.csv')
+vendors = pd.read_csv(vendors_path)
+vendors
 
-def bnfcodes_from_codelist(codelistURL):
-    DF=pd.read_csv(codelistURL)
-    return DF
+# +
+sql = '''
+SELECT Date, ODS, TRIM(Principal_Supplier) AS supplier FROM `ebmdatalab.alex.vendors`'''
+
+vendors_DF = bq.cached_read(sql, csv_path=os.path.join('..','data','vendorstest.csv'))
+vendors_DF
+# -
 
 
